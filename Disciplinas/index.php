@@ -1,4 +1,5 @@
 <?php 
+  include "../Usuarios/loginFunctions.php";
   session_start();
 ?>
 <!DOCTYPE html>
@@ -16,57 +17,10 @@
 
 <body>
 
+    <?php
+      include "../cabecalho.php";
+    ?>
 
-      <div class="row">
-        <div class="col"style="background-color: #F88011;">
-          <img class="img-thumbnail" src="../logo.jpeg" alt="">
-        </div>
-        <div class="col-6"style="background-color: #F88011;text-align:center;">
-          <br><br>
-          <h1>Disciplinas</h1>
-        </div>
-        <div class="col" style="background-color: #F88011;text-align: center;">
-          <br>
-          <br>
-          <button class="btn btn-warning"><?php echo $_SESSION['nome']; ?></button>
-          <p><?php echo $_SESSION['matricula'] ?></p>
-        </div>
-      </div>
-      <div class="col " style="background-color: #FFC089;">
-        <div class="row ">
-
-          <div class="col border border-dark">
-            <br>
-            <a class="d-flex justify-content-center text-center" href="../index.php">Home</a>
-            <br>
-          </div>
-          <div class="col border border-dark">
-
-            <br>
-            <a class="d-flex justify-content-center text-center" href="../Reservas/index.php">Salas</a>
-            <br>
-          </div>
-          <div class="col border border-dark">
-
-            <br>
-            <a class="d-flex justify-content-center text-center" href="index.php">Disciplinas</a>
-            <br>
-          </div>
-          <div class="col border border-dark">
-
-            <br>
-            <a class="d-flex justify-content-center text-center" href="../Reservas/index.php">Tutores</a>
-            <br>
-          </div>
-          <div class="col border border-dark">
-
-            <br>
-            <a class="d-flex justify-content-center text-center" href="../Reservas/index.php">Reservas</a>
-            <br>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="fundo">
 
       <div class="row">

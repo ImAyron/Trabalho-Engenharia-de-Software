@@ -16,50 +16,10 @@ require "./Usuarios/loginFunctions.php";
 
 <body>
 
-
-  <div class="row">
-    <div class="col" style="background-color: #F88011;">
-      <img class="img-thumbnail" src="logo.jpeg" alt="">
-    </div>
-    <div class="col-10" style="background-color: #F88011;">
-
-    </div>
-  </div>
-  <div class="col " style="background-color: #FFC089;">
-    <div class="row ">
-
-      <div class="col border border-dark">
-        <br>
-        <a class="d-flex justify-content-center text-center" href="index.php">Home</a>
-        <br>
-      </div>
-      <div class="col border border-dark">
-
-        <br>
-        <a class="d-flex justify-content-center text-center" href="">Salas</a>
-        <br>
-      </div>
-      <div class="col border border-dark">
-
-        <br>
-        <a class="d-flex justify-content-center text-center" href="Disciplinas/index.php">Disciplinas</a>
-        <br>
-      </div>
-      <div class="col border border-dark">
-
-        <br>
-        <a class="d-flex justify-content-center text-center" href="reservas.html">Tutores</a>
-        <br>
-      </div>
-      <div class="col border border-dark">
-
-        <br>
-        <a class="d-flex justify-content-center text-center" href="Reservas/index.php">Reservas</a>
-        <br>
-      </div>
-    </div>
-  </div>
-  </div>
+  <?php
+    require "cabecalho.php"
+  ?>
+  
   <div class="fundo">
 
     <div class="row">
@@ -99,6 +59,7 @@ require "./Usuarios/loginFunctions.php";
         <?php
         }
         ?>
+        
 
       </div>
       <div class="col">
