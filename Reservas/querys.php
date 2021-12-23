@@ -73,7 +73,7 @@ function reservarSala($codigo)
         $conection->commit();
     } catch (Exception $error) {
         $conection->rollBack();
-        die("Erro na inserção! " . $error->getMessage());
+        die("Erro! " . $error->getMessage());
     }
 }
 
@@ -93,7 +93,7 @@ function cancelarReservaSala($codigo)
         $conection->commit();
     } catch (Exception $error) {
         $conection->rollBack();
-        die("Erro na inserção! " . $error->getMessage());
+        die("Erro! " . $error->getMessage());
     }
 }
 
@@ -122,10 +122,6 @@ function deletarReserva($codigo)
 {
     require 'Database/conexao.php';
 
-    if (session_id() == '') {
-        session_start();
-    }
-
     try {
 
         $conection->beginTransaction();
@@ -138,6 +134,6 @@ function deletarReserva($codigo)
         $conection->commit();
     } catch (Exception $error) {
         $conection->rollBack();
-        die("Erro na inserção! " . $error->getMessage());
+        die("Erro ao deletar! " . $error->getMessage());
     }
 }
