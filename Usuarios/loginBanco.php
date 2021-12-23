@@ -23,6 +23,9 @@ if (empty($stmt)) {
   $_SESSION['email'] = $stmt['email'];
   $_SESSION['nome'] = $stmt['nome'];
   $_SESSION['matricula'] = $stmt['matricula'];
+  $_SESSION['cpf'] = $stmt['cpf'];
+  $_SESSION['tipo'] = $stmt['tipo'];
+
 
 
 
