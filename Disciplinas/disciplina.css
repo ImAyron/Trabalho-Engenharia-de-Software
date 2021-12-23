@@ -1,0 +1,12 @@
+.botao{
+
+    color: white;
+    background-color:#FFC089;
+    border-color: white;
+    border-radius: 20%;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
