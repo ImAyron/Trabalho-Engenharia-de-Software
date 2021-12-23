@@ -1,6 +1,7 @@
 <?php 
   session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +12,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
    <link rel=" stylesheet" type = 'text/css'  href="reserva.css"> 
-  <title>Document</title>
+  <title>GESTMI - Reservas</title>
 </head>
 
 <body>
@@ -49,7 +50,7 @@
           <div class="col border border-dark">
 
             <br>
-            <a class="d-flex justify-content-center text-center" href="reservas.html">Disciplinas</a>
+            <a class="d-flex justify-content-center text-center" href="../Disciplinas/index.php">Disciplinas</a>
             <br>
           </div>
           <div class="col border border-dark">
@@ -78,13 +79,13 @@
               <form action="controllerInsert.php" method="post">
                 <div class="btn-group-vertical">
                   <p></p>
-                 <a class="btn btn-lg btn-block btn-warning " href="create.html"><input type="button" class="btn btn-lg btn-block btn-warning " value='criar'></a>
+                 <a class="btn btn-lg btn-block btn-warning " href="create.php"><input type="button" class="btn btn-lg btn-block btn-warning " value='criar'></a>
                  <p></p>
-                 <a class="btn btn-lg btn-block btn-warning " href="create.html"><input type="button" class="btn-lg btn-block btn btn-warning" value='editar'></a>
+                 <a class="btn btn-lg btn-block btn-warning " href="create.php"><input type="button" class="btn-lg btn-block btn btn-warning" value='editar'></a>
                  <p></p>
-                 <a class="btn btn-lg btn-block btn-warning " href="create.html"><input type="button" class="btn btn-lg btn-block btn-warning" value='Vizualizar'></a>
+                 <a class="btn btn-lg btn-block btn-warning " href="create.php"><input type="button" class="btn btn-lg btn-block btn-warning" value='Vizualizar'></a>
                  <p></p>
-                 <a class="btn btn-lg btn-block btn-warning " href="create.html"><input type="button" class="btn btn-lg btn-block  btn-warning" value='Remover'></a>
+                 <a class="btn btn-lg btn-block btn-warning " href="create.php"><input type="button" class="btn btn-lg btn-block  btn-warning" value='Remover'></a>
                 </div> 
 
               </form>

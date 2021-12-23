@@ -1,3 +1,7 @@
+<?php 
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,8 +30,8 @@
     <div class="col" style="background-color: #F88011;text-align: center;">
       <br>
       <br>
-      <button class="btn btn-warning"> Ayron </button>
-      <p>19.1.8065</p>
+      <button class="btn btn-warning"> <?php echo $_SESSION['nome']; ?> </button>
+      <p><?php echo $_SESSION['matricula'] ?></p>
     </div>
   </div>
   <div class="col " style="background-color: #FFC089;">
