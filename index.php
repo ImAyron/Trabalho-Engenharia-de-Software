@@ -11,7 +11,7 @@ require "./Usuarios/loginFunctions.php";
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel=" stylesheet" type='text/css' href="trab.css">
-  <title>Document</title>
+  <title>GESTMI</title>
 </head>
 
 <body>
@@ -42,7 +42,7 @@ require "./Usuarios/loginFunctions.php";
       <div class="col border border-dark">
 
         <br>
-        <a class="d-flex justify-content-center text-center" href="reservas.html">Disciplinas</a>
+        <a class="d-flex justify-content-center text-center" href="Disciplinas/index.php">Disciplinas</a>
         <br>
       </div>
       <div class="col border border-dark">
