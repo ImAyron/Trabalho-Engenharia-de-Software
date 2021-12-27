@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+=======
+<?php 
+  require "../Usuarios/loginFunctions.php";
+  session_start();
+?>
+
+>>>>>>> 12212954bafb6749971b1823a9d1ba08cd90f8fa
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +21,7 @@
 
 <body>
 
+<<<<<<< HEAD
 
   <div class="row">
     <div class="col" style="background-color: #F88011;">
@@ -64,6 +73,12 @@
       </div>
     </div>
   </div>
+=======
+  <?php
+    require "../cabecalho.php"
+  ?>
+
+>>>>>>> 12212954bafb6749971b1823a9d1ba08cd90f8fa
   </div>
   <div class="fundo">
 
@@ -81,6 +96,7 @@
             <label for="num_assentos">Dia:</label>
             <input class="form-control" type="text" name="sid" id="sid">
             <p></p>
+<<<<<<< HEAD
 
             <label for="tipo">Horário</label>
                     <select class="form-control" name="tipo" id="tipo">
@@ -96,6 +112,13 @@
 
                     </select>
             <br>
+=======
+            <label for="num_assentos">Horário:</label>
+            <input class="form-control" type="text" name="sid" id="sid">
+            <p></p>
+
+
+>>>>>>> 12212954bafb6749971b1823a9d1ba08cd90f8fa
             <input class="btn btn-warning" type="submit" value="Confirmar Inserção">
 
 
