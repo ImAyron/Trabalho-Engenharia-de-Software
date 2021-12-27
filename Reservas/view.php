@@ -1,3 +1,7 @@
+<?php
+require "../Usuarios/loginFunctions.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,57 +16,10 @@
 
 <body>
 
+  <?php
+    require "../cabecalho.php"
+  ?>
 
-  <div class="row">
-    <div class="col" style="background-color: #F88011;">
-      <img class="img-thumbnail" src="../logo.jpeg" alt="">
-    </div>
-    <div class="col-6" style="background-color: #F88011;text-align:center;">
-      <br><br>
-      <h1>Reservas</h1>
-    </div>
-    <div class="col" style="background-color: #F88011;text-align: center;">
-      <br>
-      <br>
-      <button class="btn btn-warning">Ayron</button>
-      <p>19.1.8065</p>
-    </div>
-  </div>
-  <div class="col " style="background-color: #FFC089;">
-    <div class="row ">
-
-      <div class="col border border-dark">
-        <br>
-        <a class="d-flex justify-content-center text-center" href="../index.html">Home</a>
-        <br>
-      </div>
-      <div class="col border border-dark">
-
-        <br>
-        <a class="d-flex justify-content-center text-center" href="reservas.html">Salas</a>
-        <br>
-      </div>
-      <div class="col border border-dark">
-
-        <br>
-        <a class="d-flex justify-content-center text-center" href="reservas.html">Disciplinas</a>
-        <br>
-      </div>
-      <div class="col border border-dark">
-
-        <br>
-        <a class="d-flex justify-content-center text-center" href="reservas.html">Tutores</a>
-        <br>
-      </div>
-      <div class="col border border-dark">
-
-        <br>
-        <a class="d-flex justify-content-center text-center" href="index.php">Reservas</a>
-        <br>
-      </div>
-    </div>
-  </div>
-  </div>
   <div class="fundo">
 
     <div class="row">
