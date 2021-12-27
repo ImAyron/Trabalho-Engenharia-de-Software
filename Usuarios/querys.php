@@ -2,7 +2,7 @@
 
 function filtroInstrutoresPadrao()
 {
-    require 'Database/conexao.php';
+    require '../Database/conexao.php';
 
     $stmt = $conection->query("SELECT nome, matricula, email, disciplina FROM USUARIOS EXCEPT
     SELECT nome, matricula, email, disciplina FROM USUARIOS WHERE tipo = 'ADMIN' ORDER BY disciplina");
