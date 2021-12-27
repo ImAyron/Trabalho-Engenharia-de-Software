@@ -58,7 +58,7 @@
           <div class="col border border-dark">
 
             <br>
-            <a class="d-flex justify-content-center text-center" href="index.html">Reservas</a>
+            <a class="d-flex justify-content-center text-center" href="index.php">Reservas</a>
             <br>
           </div>
         </div>
@@ -67,21 +67,21 @@
     <div class="fundo">
 
       <div class="row">
-      <div class="col-1">
+      <div class="col-2">
 
       </div>
-      <div class="col-3">
+      <div class="col-4">
           <div class='form-group'>
               <form action="controllerInsert.php" method="post">
                 <div class="btn-group-vertical">
                   <p></p>
-                 <a class="btn btn-lg btn-block btn-warning " href="create.html"><input type="button" class="btn btn-lg btn-block btn-warning " value='criar'></a>
+                 <a class="btn btn-lg btn-block btn-warning border border-dark" href="create.php"><input type="button" class="btn btn-lg btn-block btn-warning " value='criar'></a>
                  <p></p>
-                 <a class="btn btn-lg btn-block btn-warning " href="create.html"><input type="button" class="btn-lg btn-block btn btn-warning" value='editar'></a>
+                 <a class="btn btn-lg btn-block btn-warning border border-dark" href="edit.php"><input type="button" class="btn-lg btn-block btn btn-warning" value='editar'></a>
                  <p></p>
-                 <a class="btn btn-lg btn-block btn-warning " href="create.html"><input type="button" class="btn btn-lg btn-block btn-warning" value='Vizualizar'></a>
+                 <a class="btn btn-lg btn-block btn-warning border border-dark" href="view.php"><input type="button" class="btn btn-lg btn-block btn-warning" value='Vizualizar'></a>
                  <p></p>
-                 <a class="btn btn-lg btn-block btn-warning " href="create.html"><input type="button" class="btn btn-lg btn-block  btn-warning" value='Remover'></a>
+                 <a class="btn btn-lg btn-block btn-warning border border-dark" href="remove.php"><input type="button" class="btn btn-lg btn-block  btn-warning" value='Remover'></a>
                 </div> 
 
               </form>
@@ -89,7 +89,7 @@
           </div>
       </div>
       <div class="col">
-        <img src="../predios_e_cantina.jpg" class="img-fluid" alt="Imagem responsiva">
+        <img src="../bloco a.png" class="img-thumbnail" alt="Imagem responsiva">
       </div>
     </div>
 
