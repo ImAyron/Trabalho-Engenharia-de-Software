@@ -1,11 +1,8 @@
-<<<<<<< HEAD
-=======
 <?php 
   require "../Usuarios/loginFunctions.php";
   session_start();
 ?>
 
->>>>>>> 12212954bafb6749971b1823a9d1ba08cd90f8fa
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,64 +18,10 @@
 
 <body>
 
-<<<<<<< HEAD
-
-  <div class="row">
-    <div class="col" style="background-color: #F88011;">
-      <img class="img-thumbnail" src="../logo.jpeg" alt="">
-    </div>
-    <div class="col-6" style="background-color: #F88011;text-align:center;">
-      <br>
-      <br>
-      <h1>Reservas</h1>
-    </div>
-    <div class="col" style="background-color: #F88011;text-align: center;">
-      <br>
-      <br>
-      <button class="btn btn-warning"> Ayron </button>
-      <p>19.1.8065</p>
-    </div>
-  </div>
-  <div class="col " style="background-color: #FFC089;">
-    <div class="row ">
-
-      <div class="col border border-dark">
-        <br>
-        <a class="d-flex justify-content-center text-center" href="../index.html">Home</a>
-        <br>
-      </div>
-      <div class="col border border-dark">
-
-        <br>
-        <a class="d-flex justify-content-center text-center" href="reservas.html">Salas</a>
-        <br>
-      </div>
-      <div class="col border border-dark">
-
-        <br>
-        <a class="d-flex justify-content-center text-center" href="reservas.html">Disciplinas</a>
-        <br>
-      </div>
-      <div class="col border border-dark">
-
-        <br>
-        <a class="d-flex justify-content-center text-center" href="reservas.html">Tutores</a>
-        <br>
-      </div>
-      <div class="col border border-dark">
-
-        <br>
-        <a class="d-flex justify-content-center text-center" href="index.html">Reservas</a>
-        <br>
-      </div>
-    </div>
-  </div>
-=======
   <?php
     require "../cabecalho.php"
   ?>
 
->>>>>>> 12212954bafb6749971b1823a9d1ba08cd90f8fa
   </div>
   <div class="fundo">
 
@@ -96,7 +39,6 @@
             <label for="num_assentos">Dia:</label>
             <input class="form-control" type="text" name="sid" id="sid">
             <p></p>
-<<<<<<< HEAD
 
             <label for="tipo">Horário</label>
                     <select class="form-control" name="tipo" id="tipo">
@@ -112,13 +54,6 @@
 
                     </select>
             <br>
-=======
-            <label for="num_assentos">Horário:</label>
-            <input class="form-control" type="text" name="sid" id="sid">
-            <p></p>
-
-
->>>>>>> 12212954bafb6749971b1823a9d1ba08cd90f8fa
             <input class="btn btn-warning" type="submit" value="Confirmar Inserção">
 
 
