@@ -1,5 +1,5 @@
 <?php
-require "../Usuarios/loginFunctions.php";
+require "loginFunctions.php";
 ?>
 
 <!DOCTYPE html>
@@ -30,35 +30,25 @@ require "../Usuarios/loginFunctions.php";
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">#</th>
               <th scope="col">Nome</th>
-              <th scope="col">Dia</th>
-              <th scope="col">Horário</th>
-              <th scope="col">Sala</th>
+              <th scope="col">Email</th>
+              <th scope="col">Disciplina</th>
             </tr>
           </thead>
           <tbody>
+            <?php
+              require "querys.php";
+              foreach (filtroInstrutoresPadrao() as $u){
+            ?>
             <tr>
-              <th scope="row">1</th>
-              <td>Ayron</td>
-              <td>26/11</td>
-              <td>21:30:00</td>
-              <td>A302</td>
+              <td><?php echo $u['nome']?></td>
+              <td><?php echo $u['email']?></td>
+              <td><?php echo $u['disciplina']?></td>
+              <td><a>Editar</a></td>
             </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Kevin</td>
-              <td>25/12</td>
-              <td>24:00:00</td>
-              <td>B401</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Lucas</td>
-              <td>01/01</td>
-              <td>10:21:00</td>
-              <td>C302</td>
-            </tr>
+            <?php
+              }
+            ?>
           </tbody>
         </table>
       </div>
