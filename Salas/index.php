@@ -26,10 +26,8 @@ require "../Usuarios/loginFunctions.php";
     <div class="fundo">
 
       <div class="row">
+      
       <div class="col-2">
-
-      </div>
-      <div class="col-4">
           <div class='form-group'>
               <form action="controllerInsert.php" method="post">
                 <div class="btn-group-vertical">
@@ -48,7 +46,7 @@ require "../Usuarios/loginFunctions.php";
           </div>
       </div>
       <div class="col">
-        <img src="../bloco a.png" class="img-thumbnail" alt="Imagem responsiva">
+        <img src="../mapa.png" class="img-fluid" alt="Imagem responsiva">
       </div>
     </div>
 
