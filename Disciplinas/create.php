@@ -34,15 +34,14 @@
         <div class='form-group'>
           <form action="controllerInsert.php" method="post">
             <p></p>
-            <label for="numero">Código da Disciplina:</label>
-            <input class="form-control" type="text" name="id" id="id">
+            <label for="cod">Código da Disciplina:</label>
+            <input class="form-control" type="text" name="cod" id="cod">
             <p></p>
-            <label for="num_assentos">Nome da disciplina:</label>
-            <input class="form-control" type="text" name="sid" id="sid">
+            <label for="nome">Nome da disciplina:</label>
+            <input class="form-control" type="text" name="nome" id="nome">
             <p></p>
 
             <input class="btn btn-warning" type="submit" value="Confirmar Inserção">
-
 
           </form>
 
