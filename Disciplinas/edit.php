@@ -40,7 +40,10 @@
             <input class="form-control" type="text" name="nome" id="nome">
             <p></p>
             <input type="hidden" name="cod" value="<?=$_GET['cod']?>" />
-            <input class="btn btn-warning" type="submit" value="Confirmar Edição">
+            <div class="row-8">
+                <input class="btn btn-warning" type="submit" value="Confirmar Edição">
+                <a href="controllerDelete.php?cod=<?php echo($_GET['cod']);?>"class="btn btn-warning">Excluir</a>
+            </div>
 
           </form>
 

@@ -185,3 +185,22 @@ function editarDisciplinas($cod, $nome)
         die("Erro! " . $error->getMessage());
     }
 }
+
+function deletarDisciplinas($cod)
+{
+    require '../Database/conexao.php';
+    try {
+
+        $conection->beginTransaction();
+
+        $stmt = $conection->prepare("DELETE FROM DISCIPLINAS WHERE cod=:cod");
+
+        $stmt->bindParam(":cod", $cod);
+        $stmt->execute();
+
+        $conection->commit();
+    } catch (Exception $error) {
+        $conection->rollBack();
+        die("Erro ao deletar! " . $error->getMessage());
+    }
+}
