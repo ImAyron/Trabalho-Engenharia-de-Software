@@ -29,5 +29,5 @@ if (empty($stmt)) {
 
 
 
-  header('location:../Reservas/index.php');
+  header('location:../index.php');
 }

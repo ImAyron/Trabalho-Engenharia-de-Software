@@ -104,3 +104,31 @@ function trocarSenha($novasenha)
         die("Erro! " . $error->getMessage());
     }
 }
+
+function inserirUsuarios($cpf, $nome, $matricula, $email, $disciplina, $tipo, $senha)
+{
+    require '../Database/conexao.php';
+
+    try {
+
+        $conection->beginTransaction();
+
+        $stmt = $conection->prepare("INSERT INTO USUARIOS (nome,matricula,email,disciplina,senha,tipo,cpf)
+        VALUES (:nome,:matricula,:email,:disciplina,:senha,:tipo,:cpf)");
+
+        $stmt->bindParam(":cpf", $cpf);
+        $stmt->bindParam(":nome", $nome);
+        $stmt->bindParam(":matricula", $matricula);
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":senha", $senha);
+        $stmt->bindParam(":disciplina", $disciplina);
+        $stmt->bindParam(":tipo", $tipo);
+
+        $stmt->execute();
+
+        $conection->commit();
+    } catch (Exception $error) {
+        $conection->rollBack();
+        die("Erro! " . $error->getMessage());
+    }
+}
