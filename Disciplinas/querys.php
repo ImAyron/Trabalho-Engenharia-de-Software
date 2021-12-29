@@ -165,3 +165,23 @@ function inserirDisciplinas($cod, $nome)
     }
 }
 
+function editarDisciplinas($cod, $nome)
+{
+    require '../Database/conexao.php';
+
+    try {
+
+        $conection->beginTransaction();
+
+        $stmt = $conection->prepare("UPDATE DISCIPLINAS SET nome=:nome WHERE cod=:cod");
+
+        $stmt->bindParam(":nome", $nome);
+        $stmt->bindParam(":cod", $cod);
+        $stmt->execute();
+
+        $conection->commit();
+    } catch (Exception $error) {
+        $conection->rollBack();
+        die("Erro! " . $error->getMessage());
+    }
+}

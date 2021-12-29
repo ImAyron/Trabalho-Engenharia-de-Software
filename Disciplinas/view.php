@@ -43,7 +43,7 @@ include "../Usuarios/loginFunctions.php";
             <tr>
               <td><?php echo $u['cod']?></td>
               <td><?php echo $u['nome']?></td>
-              <td><a>Editar</a></td>
+              <td><a href="edit.php?cod=<?php echo($u['cod'])?>"><input type="button" value='editar'></a></td>
             </tr>
             <?php
               }
