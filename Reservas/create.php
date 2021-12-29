@@ -33,7 +33,7 @@
         <div class='form-group'>
           <form action="controllerInsert.php" method="post">
             <p></p>
-            <label for="numero">Sala:</label>
+            <label for="sala">Sala:</label>
             <input class="form-control" type="text" name="id" id="id">
             <p></p>
             <label for="num_assentos">Dia:</label>
