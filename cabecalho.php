@@ -169,7 +169,7 @@ if (session_id() == '') {
 
       <div class="col border border-dark">
         <br>
-        <a class="d-flex justify-content-center text-center" href="/Trabalho-Engenharia-de-Software/Disciplinas/index.php">Disciplinas</a>
+        <a class="d-flex justify-content-center text-center" href="/Trabalho-Engenharia-de-Software/Disciplinas/view.php">Disciplinas</a>
         <br>
       </div>
 
