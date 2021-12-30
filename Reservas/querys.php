@@ -43,9 +43,9 @@ function filtroMinhasReservas()
     return $stmt->fetchAll();
 }
 
-function filtroTodasReservas($dia)
+function filtroTodasReservas()
 {
-    require 'Database/conexao.php';
+    require '../Database/conexao.php';
 
     $stmt = $conection->query("SELECT * FROM RESERVAS ORDER BY diahora");
 
@@ -136,5 +136,40 @@ function deletarReserva($codigo)
     } catch (Exception $error) {
         $conection->rollBack();
         die("Erro ao deletar! " . $error->getMessage());
+    }
+}
+
+function filtroReservaCodigo($cod)
+{
+    require '../Database/conexao.php';
+
+    $stmt = $conection->prepare("SELECT * FROM RESERVAS WHERE cod=:cod");
+
+    $stmt->bindParam(":cod", $cod);
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+}
+
+function editarReservas($sala, $diahora, $cod)
+{
+    require '../Database/conexao.php';
+
+    try {
+
+        $conection->beginTransaction();
+
+        $stmt = $conection->prepare("UPDATE RESERVAS SET sala=:sala, diahora=:diahora WHERE cod=:cod");
+        
+        $stmt->bindParam(":cod", $cod);
+        $stmt->bindParam(":diahora", $diahora);
+        $stmt->bindParam(":sala", $sala);
+
+        $stmt->execute();
+
+        $conection->commit();
+    } catch (Exception $error) {
+        $conection->rollBack();
+        die("Erro! " . $error->getMessage());
     }
 }

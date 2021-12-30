@@ -25,31 +25,53 @@ require "../Usuarios/loginFunctions.php";
     </div>
     <div class="fundo">
 
-      <div class="row">
+    <div class="row">
+      <div class="col-2">
+      <br>
+      <a class="btn btn-warning" href="create.php">
+        <input type="button" class="btn btn-warning" value='Novo Usuário'>
+      </a>
+      </div>
+      <div class="col">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Sala</th>
+              <th scope="col">Dia/Hora</th>
+              <th scope="col">Instrutor</th>
+              <th scope="col">Código</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+              require "querys.php";
+              foreach (filtroTodasReservas() as $u){
+            ?>
+            <tr>
+              <td><?php echo $u['sala']?></td>
+              <td><?php echo $u['diahora']?></td>
+              <td>
+                <?php 
+                  if ($u['instrutor' == null]){
+                    echo 'Livre';
+                  } else {
+                    echo ($u['instrutor']);
+                  }
+                ?>
+              </td>
+              <td><?php echo $u['cod']?></td>
+              <td><a href="edit.php?cod=<?php echo($u['cod'])?>"><input type="button" value='editar'></a></td>
+            </tr>
+            <?php
+              }
+            ?>
+          </tbody>
+        </table>
+      </div>
       <div class="col-2">
 
       </div>
-      <div class="col-4">
-          <div class='form-group'>
-              <form action="controllerInsert.php" method="post">
-                <div class="btn-group-vertical">
-                  <p></p>
-                 <a class="btn btn-lg btn-block btn-warning border border-dark" href="create.php"><input type="button" class="btn btn-lg btn-block btn-warning " value='criar'></a>
-                 <p></p>
-                 <a class="btn btn-lg btn-block btn-warning border border-dark" href="edit.php"><input type="button" class="btn-lg btn-block btn btn-warning" value='editar'></a>
-                 <p></p>
-                 <a class="btn btn-lg btn-block btn-warning border border-dark" href="view.php"><input type="button" class="btn btn-lg btn-block btn-warning" value='Vizualizar'></a>
-                 <p></p>
-                 <a class="btn btn-lg btn-block btn-warning border border-dark" href="remove.php"><input type="button" class="btn btn-lg btn-block  btn-warning" value='Remover'></a>
-                </div> 
 
-              </form>
-
-          </div>
-      </div>
-      <div class="col">
-        <img src="../bloco a.png" class="img-thumbnail" alt="Imagem responsiva">
-      </div>
     </div>
 
 
