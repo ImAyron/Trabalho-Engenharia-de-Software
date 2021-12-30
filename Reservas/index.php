@@ -29,7 +29,7 @@ require "../Usuarios/loginFunctions.php";
       <div class="col-2">
       <br>
       <a class="btn btn-warning" href="create.php">
-        <input type="button" class="btn btn-warning" value='Novo Usuário'>
+        <input type="button" class="btn btn-warning" value='Nova Reserva'>
       </a>
       </div>
       <div class="col">
