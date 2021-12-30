@@ -24,7 +24,10 @@ require "loginFunctions.php";
 
     <div class="row">
       <div class="col-2">
-
+      <br>
+      <a class="btn btn-warning" href="create.php">
+        <input type="button" class="btn btn-warning" value='Novo Usuário'>
+      </a>
       </div>
       <div class="col">
         <table class="table">
@@ -33,7 +36,6 @@ require "loginFunctions.php";
               <th scope="col">Nome</th>
               <th scope="col">Email</th>
               <th scope="col">Disciplina</th>
-              <th><a class="btn btn-lg btn-block btn-warning border border-dark" href="create.php"><input type="button" class="btn btn-lg btn-block btn-warning " value='criar'></a></th>
             </tr>
           </thead>
           <tbody>

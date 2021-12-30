@@ -10,5 +10,4 @@
     $senha = $_POST['senha'];
 
     inserirUsuarios($cpf, $nome, $matricula, $email, $disciplina, $tipo, $senha);
-    
     header("location:index.php");

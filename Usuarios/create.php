@@ -35,30 +35,30 @@
           <form action="controllerInsert.php" method="post">
             <p></p>
             <label for="cpf">CPF:</label>
-            <input class="form-control" type="text" name="cpf" id="cpf">
+            <input class="form-control" type="text" required name="cpf" id="cpf" placeholder="Ex: 000.000.000-00">
             <p></p>
             <label for="nome">Nome:</label>
-            <input class="form-control" type="text" name="nome" id="nome">
+            <input class="form-control" type="text" required name="nome" id="nome" placeholder="Ex: João das Couves">
             <p></p>
             <p></p>
             <label for="matricula">Matricula:</label>
-            <input class="form-control" type="text" name="matricula" id="matricula">
+            <input class="form-control" type="text" required name="matricula" id="matricula" placeholder="Ex: 00.0.0000">
             <p></p>
             <p></p>
             <label for="email">Email:</label>
-            <input class="form-control" type="text" name="email" id="email">
+            <input class="form-control" type="email" required name="email" id="email" placeholder="Ex: joao.couves@ufop.edu.br">
             <p></p>
             <p></p>
             <label for="senha">Senha:</label>
-            <input class="form-control" type="text" name="senha" id="senha">
+            <input class="form-control" type="password" name="senha" id="senha" placeholder="Ex: *******"> 
             <p></p>
             <p></p>
             <label for="disciplina">Código da disciplina:</label>
-            <input class="form-control" type="text" name="disciplina" id="disciplina">
+            <input class="form-control" type="text" required name="disciplina" id="disciplina" placeholder="Ex: AAA000">
             <p></p>
             <p></p>
             <label for="tipo">Tipo de usuário:</label>
-            <input class="form-control" type="text" name="tipo" id="tipo">
+            <input class="form-control" type="text" required name="tipo" id="tipo" placeholder="Ex: MONITOR">
             <p></p>
             
 
