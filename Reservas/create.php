@@ -34,14 +34,14 @@
           <form action="controllerInsert.php" method="post">
             <p></p>
             <label for="sala">Sala:</label>
-            <input class="form-control" type="text" name="id" id="id">
+            <input class="form-control" type="text" name="sala" id="sala">
             <p></p>
-            <label for="num_assentos">Dia:</label>
-            <input class="form-control" type="text" name="sid" id="sid">
+            <label for="dia">Dia:</label>
+            <input class="form-control" type="date" name="dia" id="dia">
             <p></p>
 
-            <label for="tipo">Horário</label>
-                    <select class="form-control" name="tipo" id="tipo">
+            <label for="hora">Horário</label>
+                    <select class="form-control" name="hora" id="hora">
                         
                         <option>13:00 - 13:50</option>
                         <option>14:00 - 14:50</option>

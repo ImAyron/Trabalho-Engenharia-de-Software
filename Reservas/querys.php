@@ -97,18 +97,19 @@ function cancelarReservaSala($codigo)
     }
 }
 
-function inserirReserva($sala, $dia, $hora)
+function inserirReserva($sala, $timeStamp)
 {
-    require 'Database/conexao.php';
+    require '../Database/conexao.php';
 
     try {
 
         $conection->beginTransaction();
 
-        $stmt = $conection->prepare("INSERT INTO RESERVAS (sala, diahora) VALUES (:sala, :dh)");
+        $stmt = $conection->prepare("INSERT INTO RESERVAS (sala, diahora) VALUES (:sala, :diahora)");
 
         $stmt->bindParam(":sala", $sala);
-        $stmt->bindParam(":dh", $dia + ' ' + $hora);
+        //$stmt->bindParam(":dh", $dia.' '.$hora);
+        $stmt->bindParam(":diahora", $timeStamp);
         $stmt->execute();
 
         $conection->commit();
