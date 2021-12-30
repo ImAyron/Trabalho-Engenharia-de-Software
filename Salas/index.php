@@ -24,7 +24,10 @@ require "../Usuarios/loginFunctions.php";
 
     <div class="row">
       <div class="col-2">
-
+      <br>
+      <a class="btn btn-warning" href="create.php">
+        <input type="button" class="btn btn-warning" value='Nova Sala'>
+      </a>
       </div>
       <div class="col">
         <table class="table">
@@ -40,6 +43,7 @@ require "../Usuarios/loginFunctions.php";
             ?>
             <tr>
               <td><?php echo $u['cod']?></td>
+              <td><a href="controllerDelete.php?cod=<?php echo($u['cod'])?>"><input type="button" value='excluir'></a></td>
             </tr>
             <?php
               }

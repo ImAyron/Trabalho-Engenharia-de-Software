@@ -135,3 +135,24 @@ function inserirSala($cod)
         die("Erro! " . $error->getMessage());
     }
 }
+
+function deletarSala($cod)
+{
+    require '../Database/conexao.php';
+
+    try {
+
+        $conection->beginTransaction();
+
+        $stmt = $conection->prepare("DELETE FROM SALAS WHERE cod=:cod");
+
+        $stmt->bindParam(":cod", $cod);
+
+        $stmt->execute();
+
+        $conection->commit();
+    } catch (Exception $error) {
+        $conection->rollBack();
+        die("Erro! " . $error->getMessage());
+    }
+}

@@ -1,7 +1,8 @@
 <?php
     include 'querys.php';
 
-    $cod = $_POST['cod'];
-    inserirSala($cod);
+    $cod = $_GET['cod'];
+
+    deletarSala($cod);
     
     header("location:index.php");
