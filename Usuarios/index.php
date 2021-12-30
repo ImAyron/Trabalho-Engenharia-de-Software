@@ -11,7 +11,7 @@ require "loginFunctions.php";
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel=" stylesheet" type='text/css' href="reserva.css">
-  <title>Document</title>
+  <title>GESTMI - Usuários</title>
 </head>
 
 <body>
@@ -47,7 +47,7 @@ require "loginFunctions.php";
               <td><?php echo $u['nome']?></td>
               <td><?php echo $u['email']?></td>
               <td><?php echo $u['disciplina']?></td>
-              <td><a>Editar</a></td>
+              <td><a href="edit.php?matricula=<?php echo($u['matricula'])?>"><input type="button" value='editar'></a></td>
             </tr>
             <?php
               }

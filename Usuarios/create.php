@@ -35,30 +35,30 @@
           <form action="controllerInsert.php" method="post">
             <p></p>
             <label for="cpf">CPF:</label>
-            <input class="form-control" type="text" required name="cpf" id="cpf" placeholder="Ex: 000.000.000-00">
+            <input class="form-control" type="text" required name="cpf" id="cpf" placeholder="Ex: 000.000.000-00" maxlength="14">
             <p></p>
             <label for="nome">Nome:</label>
-            <input class="form-control" type="text" required name="nome" id="nome" placeholder="Ex: João das Couves">
+            <input class="form-control" type="text" required name="nome" id="nome" placeholder="Ex: João das Couves" maxlength="70">
             <p></p>
             <p></p>
             <label for="matricula">Matricula:</label>
-            <input class="form-control" type="text" required name="matricula" id="matricula" placeholder="Ex: 00.0.0000">
+            <input class="form-control" type="text" required name="matricula" id="matricula" placeholder="Ex: 00.0.0000" maxlength="9">
             <p></p>
             <p></p>
             <label for="email">Email:</label>
-            <input class="form-control" type="email" required name="email" id="email" placeholder="Ex: joao.couves@ufop.edu.br">
+            <input class="form-control" type="email" required name="email" id="email" placeholder="Ex: joao.couves@ufop.edu.br" maxlength="60">
             <p></p>
             <p></p>
             <label for="senha">Senha:</label>
-            <input class="form-control" type="password" name="senha" id="senha" placeholder="Ex: *******"> 
+            <input class="form-control" type="password" name="senha" id="senha" placeholder="Ex: *******" maxlength="30"> 
             <p></p>
             <p></p>
             <label for="disciplina">Código da disciplina:</label>
-            <input class="form-control" type="text" required name="disciplina" id="disciplina" placeholder="Ex: AAA000">
+            <input class="form-control" type="text" required name="disciplina" id="disciplina" placeholder="Ex: AAA000" maxlength="6">
             <p></p>
             <p></p>
             <label for="tipo">Tipo de usuário:</label>
-            <input class="form-control" type="text" required name="tipo" id="tipo" placeholder="Ex: MONITOR">
+            <input class="form-control" type="text" required name="tipo" id="tipo" placeholder="Ex: MONITOR" maxlength="10">
             <p></p>
             
 

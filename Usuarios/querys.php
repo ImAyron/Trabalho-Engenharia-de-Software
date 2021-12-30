@@ -10,23 +10,34 @@ function filtroInstrutoresPadrao()
     return $stmt->fetchAll();
 }
 
-function updateUserData($nome, $matricula, $email, $discipina, $tipo)
+function filtroPorMatricula($matricula)
 {
-    require 'Database/conexao.php';
+    require '../Database/conexao.php';
+
+    $stmt = $conection->prepare("SELECT cpf, nome, matricula, email, disciplina, senha, tipo FROM USUARIOS WHERE matricula=:matricula");
+    $stmt->bindParam(":matricula", $matricula);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function updateUserData($nome, $matricula, $email, $senha, $disciplina, $tipo, $cpf)
+{
+    require '../Database/conexao.php';
 
     try {
 
         $conection->beginTransaction();
 
         $stmt = $conection->prepare("UPDATE USUARIOS SET 
-        nome=:nome, matricula=:matricula, email=:email, discipina=:discipina, tipo=:tipo
+        nome=:nome, matricula=:matricula, email=:email, disciplina=:disciplina, senha=:senha, tipo=:tipo
         WHERE cpf=:cpf");
-
+        
         $stmt->bindParam(":cpf", $cpf);
         $stmt->bindParam(":nome", $nome);
         $stmt->bindParam(":matricula", $matricula);
         $stmt->bindParam(":email", $email);
-        $stmt->bindParam(":discipina", $discipina);
+        $stmt->bindParam(":senha", $senha);
+        $stmt->bindParam(":disciplina", $disciplina);
         $stmt->bindParam(":tipo", $tipo);
 
         $stmt->execute();
@@ -130,5 +141,24 @@ function inserirUsuarios($cpf, $nome, $matricula, $email, $disciplina, $tipo, $s
     } catch (Exception $error) {
         $conection->rollBack();
         die("Erro! " . $error->getMessage());
+    }
+}
+
+function deletarUsuarios($cpf)
+{
+    require '../Database/conexao.php';
+    try {
+
+        $conection->beginTransaction();
+
+        $stmt = $conection->prepare("DELETE FROM USUARIOS WHERE cpf=:cpf");
+
+        $stmt->bindParam(":cpf", $cpf);
+        $stmt->execute();
+
+        $conection->commit();
+    } catch (Exception $error) {
+        $conection->rollBack();
+        die("Erro ao deletar! " . $error->getMessage());
     }
 }
