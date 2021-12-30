@@ -35,10 +35,10 @@
           <form action="controllerInsert.php" method="post">
             <p></p>
             <label for="cod">Código da Disciplina:</label>
-            <input class="form-control" type="text" name="cod" id="cod">
+            <input class="form-control" type="text" required name="cod" id="cod" minlength="6" maxlength="6">
             <p></p>
             <label for="nome">Nome da disciplina:</label>
-            <input class="form-control" type="text" name="nome" id="nome">
+            <input class="form-control" type="text" required name="nome" id="nome" maxlength="60">
             <p></p>
 
             <input class="btn btn-warning" type="submit" value="Confirmar Inserção">
