@@ -119,17 +119,17 @@ function inserirReserva($sala, $timeStamp)
     }
 }
 
-function deletarReserva($codigo)
+function deletarReserva($cod)
 {
-    require 'Database/conexao.php';
+    require '../Database/conexao.php';
 
     try {
 
         $conection->beginTransaction();
 
-        $stmt = $conection->prepare("DELETE FROM RESERVAS WHERE cod=:codigo");
+        $stmt = $conection->prepare("DELETE FROM RESERVAS WHERE cod=:cod");
 
-        $stmt->bindParam(":cod", $codigo);
+        $stmt->bindParam(":cod", $cod);
         $stmt->execute();
 
         $conection->commit();
@@ -173,3 +173,4 @@ function editarReservas($sala, $diahora, $cod)
         die("Erro! " . $error->getMessage());
     }
 }
+

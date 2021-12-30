@@ -16,4 +16,4 @@
 
     inserirReserva($sala, $timeStamp);
     
-    header("location:view.php");
+    header("location:index.php");
