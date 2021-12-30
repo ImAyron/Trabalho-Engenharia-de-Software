@@ -32,12 +32,15 @@
       </div>
       <div class="col-8">
         <div class='form-group'>
-            <p></p>
-            <p><?php echo("Editando a disciplina: ".$_GET['cod']); ?></p>
           <form action="controllerEdit.php" method="post">
             <p></p>
+            <div class="col-4">
+            <label for="cod">Editando a disciplina:</label>
+            <input class="form-control" type="text" name="cod" id="cod" disabled value="<?=$_GET['cod']?>">
+            </div>
+            <p></p>
             <label for="nome">Nome da disciplina:</label>
-            <input class="form-control" type="text" name="nome" id="nome">
+            <input class="form-control" type="text" required name="nome" id="nome">
             <p></p>
             <input type="hidden" name="cod" value="<?=$_GET['cod']?>" />
             <div class="row-8">
