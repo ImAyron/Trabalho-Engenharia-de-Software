@@ -89,17 +89,17 @@ function reservarSala($cod)
     }
 }
 
-function cancelarReservaSala($codigo)
+function cancelarReservaSala($cod)
 {
-    require 'Database/conexao.php';
+    require '../Database/conexao.php';
 
     try {
 
         $conection->beginTransaction();
 
-        $stmt = $conection->prepare("UPDATE RESERVAS SET instrutor=NULL WHERE cod=:codigo");
+        $stmt = $conection->prepare("UPDATE RESERVAS SET instrutor=NULL WHERE cod=:cod");
 
-        $stmt->bindParam(":cod", $codigo);
+        $stmt->bindParam(":cod", $cod);
         $stmt->execute();
 
         $conection->commit();

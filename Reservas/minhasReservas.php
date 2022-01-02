@@ -56,7 +56,7 @@ require "../Usuarios/loginFunctions.php";
                 ?>
               </td>
               <td><?php echo $u['cod']?></td>
-              <td><a href="cancel.php?cod=<?php echo($u['cod'])?>"><input type="button" value='Cancelar'></a></td>
+              <td><a href="controllerCancelar.php?cod=<?php echo($u['cod'])?>"><input type="button" value='Cancelar'></a></td>
             </tr>
             <?php
               }

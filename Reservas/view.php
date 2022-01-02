@@ -69,7 +69,7 @@ require '../Database/conexao.php';
                 <?php 
                   if(!estaLogado()){
                 ?>
-                  <a href="reservarController.php?cod=<?php echo($u['cod'])?>"><input type="button" value='Reservar'></a></td>
+                  <a href="controllerReservar.php?cod=<?php echo($u['cod'])?>"><input type="button" value='Reservar'></a></td>
                 <?php
                   }
                 ?>
