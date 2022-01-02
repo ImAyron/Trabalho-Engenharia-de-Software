@@ -52,10 +52,10 @@ require "../Usuarios/loginFunctions.php";
               <td><?php echo $u['diahora']?></td>
               <td>
                 <?php 
-                  if ($u['instrutor' == null]){
-                    echo 'Livre';
+                  if ($u['instrutor'] == null){
+                    echo ("livre");
                   } else {
-                    echo ($u['instrutor']);
+                    echo $u['instrutor'];
                   }
                 ?>
               </td>

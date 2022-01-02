@@ -16,12 +16,24 @@ function filtroReservasPadrao($dia, $disciplina)
 
 function filtroReservasDisponiveis($dia)
 {
-    require 'Database/conexao.php';
+    require '../Database/conexao.php';
 
     $stmt = $conection->prepare("SELECT * FROM RESERVAS WHERE DATE(diahora)=:dia AND instrutor IS NULL 
     ORDER BY diahora");
 
     $stmt->bindParam(":dia", $dia);
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+}
+
+function filtroReservasDisponiveisTemporario()
+{
+    require '../Database/conexao.php';
+
+    $stmt = $conection->prepare("SELECT * FROM RESERVAS WHERE instrutor IS NULL 
+    ORDER BY diahora");
+
     $stmt->execute();
 
     return $stmt->fetchAll();
@@ -52,9 +64,9 @@ function filtroTodasReservas()
     return $stmt->fetchAll();
 }
 
-function reservarSala($codigo)
+function reservarSala($cod)
 {
-    require 'Database/conexao.php';
+    require '../Database/conexao.php';
 
     if (session_id() == '') {
         session_start();
@@ -64,10 +76,10 @@ function reservarSala($codigo)
 
         $conection->beginTransaction();
 
-        $stmt = $conection->prepare("UPDATE RESERVAS SET instrutor=:cpf WHERE cod=:codigo");
+        $stmt = $conection->prepare("UPDATE RESERVAS SET instrutor=:cpf WHERE cod=:cod");
 
         $stmt->bindParam(":cpf", $_SESSION['cpf']);
-        $stmt->bindParam(":cod", $codigo);
+        $stmt->bindParam(":cod", $cod);
         $stmt->execute();
 
         $conection->commit();
