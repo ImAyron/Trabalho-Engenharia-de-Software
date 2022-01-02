@@ -29,7 +29,7 @@ function filtroReservasDisponiveis($dia)
 
 function filtroMinhasReservas()
 {
-    require 'Database/conexao.php';
+    require '../Database/conexao.php';
 
     if (session_id() == '') {
         session_start();

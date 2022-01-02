@@ -63,6 +63,21 @@ if (session_id() == '') {
     ?>
 
     <?php
+    ///Botão Minhas Reservas usuario Monitor
+    if (!estalogado() && ($_SESSION['tipo']) == 'MONITOR') {
+    ?>
+      <div class="col border border-dark">
+
+        <br>
+          <a class="d-flex justify-content-center text-center" href="/Trabalho-Engenharia-de-Software/Reservas/minhasReservas.php">Minhas Reservas</a>
+        <br>
+
+      </div>
+    <?php
+    }
+    ?>
+
+    <?php
     ///Botão Reservas usuario ADMIN
     if (!estalogado() && ($_SESSION['tipo']) == 'ADMIN') {
     ?>
