@@ -40,7 +40,7 @@
             </div>
             <p></p>
             <label for="nome">Nome da disciplina:</label>
-            <input class="form-control" type="text" required name="nome" id="nome">
+            <input class="form-control" type="text" required name="nome" id="nome" maxlength="60" placeholder="Ex: Engenharia de Software">
             <p></p>
             <input type="hidden" name="cod" value="<?=$_GET['cod']?>" />
             <div class="row-8">
