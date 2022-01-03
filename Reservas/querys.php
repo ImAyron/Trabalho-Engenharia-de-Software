@@ -27,6 +27,18 @@ function filtroReservasDisponiveis($dia)
     return $stmt->fetchAll();
 }
 
+function filtroReservasOcupadasTemporario()
+{
+    require '../Database/conexao.php';
+
+    $stmt = $conection->prepare("SELECT * FROM RESERVAS WHERE instrutor IS NOT NULL 
+    ORDER BY diahora");
+
+    $stmt->execute();
+
+    return $stmt->fetchAll();
+}
+
 function filtroReservasDisponiveisTemporario()
 {
     require '../Database/conexao.php';
