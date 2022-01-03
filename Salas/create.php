@@ -35,7 +35,7 @@
           <form action="controllerInsert.php" method="post">
             <p></p>
             <label for="cod">Código da Sala:</label>
-            <input class="form-control" type="text" name="cod">
+            <input class="form-control" type="text" required name="cod" maxlength="4" minlength="4" placeholder="Ex: A101">
             <p></p>
 
             <input class="btn btn-warning" type="submit" value="Confirmar Inserção">
