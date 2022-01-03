@@ -37,6 +37,19 @@
         <div class='form-group'>
           <form action="controllerEdit.php" method="post">
             <p></p>
+            <label for="instrutor">Instrutor:</label>
+            <?php
+            if($u[0][2] != null){
+            ?>
+              <input class="form-control" type="text" disabled name="instrutor" id="instrutor" value="<?php echo($u[0][2]);?>">
+            <?php
+            } else {
+            ?>
+              <input class="form-control" type="text" disabled name="instrutor" id="instrutor" placeholder="Livre">
+            <?php
+            }
+            ?>
+            <p></p>
             <label for="sala">Sala:</label>
             <input class="form-control" type="text" required name="sala" id="sala" value="<?php echo($u[0][3]);?>">
             <p></p>
@@ -63,6 +76,7 @@
             <div class="row-8">
               <input class="btn btn-warning" type="submit" value="Confirmar Edição">
               <a href="controllerDelete.php?cod=<?php echo($u[0][0]);?>"class="btn btn-warning">Excluir</a>
+              <a href="controllerCancelar.php?cod=<?php echo($u[0][0]);?>"class="btn btn-warning">Cancelar Reserva</a>
             </div>
 
           </form>

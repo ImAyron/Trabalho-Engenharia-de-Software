@@ -1,5 +1,12 @@
 <?php
 require "../Usuarios/loginFunctions.php";
+//Teste para se caso o admin cair aqui, ele ser direcionado de volta pra página index.php
+if (session_id() == '') {
+  session_start();
+}
+if ($_SESSION['tipo'] == 'ADMIN') {
+  header("location:index.php");
+}
 ?>
 
 <!DOCTYPE html>
