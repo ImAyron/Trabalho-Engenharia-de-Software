@@ -17,8 +17,7 @@ if (session_id() == '') {
     <div class="col" style="background-color: #F88011;text-align: center;">
       <br>
       <br>
-      <a href="/Trabalho-Engenharia-de-Software/Usuarios/logout.php"><button class="btn btn-warning" action="/Trabalho-Engenharia-de-Software/Usuarios/logout.php"> <?php echo $_SESSION['nome']; ?> </button></a>
-      
+      <a href="/Trabalho-Engenharia-de-Software/Usuarios/logout.php"><button class="btn btn-warning" action="/Trabalho-Engenharia-de-Software/Usuarios/logout.php"> Logout </button></a>
       <p><?php echo $_SESSION['matricula'] ?></p>
     </div>
   <?php
