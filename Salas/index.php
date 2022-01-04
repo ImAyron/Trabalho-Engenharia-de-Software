@@ -30,10 +30,12 @@ require "../Usuarios/loginFunctions.php";
       </a>
       </div>
       <div class="col">
-        <table class="table">
+        <br>
+        <table class="table table-striped table-warning table-bordered">
           <thead>
             <tr>
               <th scope="col">Código da sala</th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
@@ -43,7 +45,7 @@ require "../Usuarios/loginFunctions.php";
             ?>
             <tr>
               <td><?php echo $u['cod']?></td>
-              <td><a href="controllerDelete.php?cod=<?php echo($u['cod'])?>"><input type="button" value='excluir'></a></td>
+              <td><a href="controllerDelete.php?cod=<?php echo($u['cod'])?>"><input type="button" class="btn btn-warning pull-right" value='Excluir'></a></td>
             </tr>
             <?php
               }

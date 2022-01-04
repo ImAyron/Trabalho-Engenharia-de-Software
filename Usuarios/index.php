@@ -30,12 +30,14 @@ require "loginFunctions.php";
       </a>
       </div>
       <div class="col">
-        <table class="table">
+        <br>
+        <table class="table table-striped table-warning table-bordered">
           <thead>
             <tr>
               <th scope="col">Nome</th>
               <th scope="col">Email</th>
               <th scope="col">Disciplina</th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
@@ -47,7 +49,7 @@ require "loginFunctions.php";
               <td><?php echo $u['nome']?></td>
               <td><?php echo $u['email']?></td>
               <td><?php echo $u['disciplina']?></td>
-              <td><a href="edit.php?matricula=<?php echo($u['matricula'])?>"><input type="button" value='editar'></a></td>
+              <td><a href="edit.php?matricula=<?php echo($u['matricula'])?>"><input type="button" class="btn btn-warning" value='editar'></a></td>
             </tr>
             <?php
               }

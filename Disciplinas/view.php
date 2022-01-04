@@ -31,11 +31,13 @@ include "../Usuarios/loginFunctions.php";
 
       </div>
       <div class="col">
-        <table class="table">
+        <br>
+        <table class="table table-striped table-warning table-bordered">
           <thead>
             <tr>
               <th scope="col">Código da Disciplina</th>
               <th scope="col">Nome</th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
@@ -46,7 +48,7 @@ include "../Usuarios/loginFunctions.php";
             <tr>
               <td><?php echo $u['cod']?></td>
               <td><?php echo $u['nome']?></td>
-              <td><a href="edit.php?cod=<?php echo($u['cod'])?>"><input type="button" value='editar'></a></td>
+              <td><a href="edit.php?cod=<?php echo($u['cod'])?>"><input type="button" class="btn btn-warning" value='editar'></a></td>
             </tr>
             <?php
               }
