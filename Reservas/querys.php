@@ -2,7 +2,7 @@
 
 function filtroReservasPadrao($dia, $disciplina)
 {
-    require 'Database/conexao.php';
+    require '../Database/conexao.php';
 
     $stmt = $conection->prepare("SELECT * FROM RESERVAS WHERE DATE(diahora)=:dia AND instrutor IN 
         (SELECT cpf FROM USUARIOS WHERE disciplina=:disciplina) ORDER BY diahora");
@@ -18,20 +18,32 @@ function filtroReservasDisponiveis($dia)
 {
     require '../Database/conexao.php';
 
-    $stmt = $conection->prepare("SELECT * FROM RESERVAS WHERE DATE(diahora)=:dia AND instrutor IS NULL 
-    ORDER BY diahora");
+    if ($dia) {
+        $stmt = $conection->prepare("SELECT * FROM RESERVAS WHERE DATE(diahora)=:dia AND instrutor IS NULL 
+        ORDER BY diahora");
 
-    $stmt->bindParam(":dia", $dia);
-    $stmt->execute();
+        $stmt->bindParam(":dia", $dia);
+        $stmt->execute();
 
-    return $stmt->fetchAll();
+        return $stmt->fetchAll();
+    } else {
+        require '../Database/conexao.php';
+
+        $stmt = $conection->prepare("SELECT * FROM RESERVAS WHERE instrutor IS NULL 
+        ORDER BY diahora");
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
 }
 
 function filtroReservasOcupadasTemporario()
 {
     require '../Database/conexao.php';
 
-    $stmt = $conection->prepare("SELECT * FROM RESERVAS WHERE instrutor IS NOT NULL 
+    $stmt = $conection->prepare("SELECT sala,diahora,cod,instrutor,nome,disciplina FROM RESERVAS
+    INNER JOIN USUARIOS ON RESERVAS.instrutor = USUARIOS.cpf WHERE instrutor IS NOT NULL 
     ORDER BY diahora");
 
     $stmt->execute();
@@ -43,7 +55,8 @@ function filtroReservasDisponiveisTemporario()
 {
     require '../Database/conexao.php';
 
-    $stmt = $conection->prepare("SELECT * FROM RESERVAS WHERE instrutor IS NULL 
+    $stmt = $conection->prepare("SELECT sala,diahora,cod,instrutor,nome,disciplina FROM RESERVAS
+    INNER JOIN USUARIOS ON RESERVAS.instrutor = USUARIOS.cpf WHERE instrutor IS NULL 
     ORDER BY diahora");
 
     $stmt->execute();
@@ -59,7 +72,8 @@ function filtroMinhasReservas()
         session_start();
     }
 
-    $stmt = $conection->prepare("SELECT * FROM RESERVAS WHERE instrutor=:cpf ORDER BY diahora");
+    $stmt = $conection->prepare("SELECT sala,diahora,cod,instrutor,nome,disciplina FROM RESERVAS
+    INNER JOIN USUARIOS ON RESERVAS.instrutor = USUARIOS.cpf WHERE instrutor=:cpf ORDER BY diahora");
 
     $stmt->bindParam(":cpf", $_SESSION['cpf']);
     $stmt->execute();
@@ -71,7 +85,8 @@ function filtroTodasReservas()
 {
     require '../Database/conexao.php';
 
-    $stmt = $conection->query("SELECT * FROM RESERVAS ORDER BY diahora");
+    $stmt = $conection->query("SELECT sala,diahora,cod,nome,disciplina FROM RESERVAS
+    INNER JOIN USUARIOS ON RESERVAS.instrutor = USUARIOS.cpf ORDER BY diahora");
 
     return $stmt->fetchAll();
 }
@@ -184,7 +199,7 @@ function editarReservas($sala, $diahora, $cod)
         $conection->beginTransaction();
 
         $stmt = $conection->prepare("UPDATE RESERVAS SET sala=:sala, diahora=:diahora WHERE cod=:cod");
-        
+
         $stmt->bindParam(":cod", $cod);
         $stmt->bindParam(":diahora", $diahora);
         $stmt->bindParam(":sala", $sala);
@@ -197,4 +212,3 @@ function editarReservas($sala, $diahora, $cod)
         die("Erro! " . $error->getMessage());
     }
 }
-

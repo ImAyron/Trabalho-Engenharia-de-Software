@@ -22,7 +22,8 @@ if (session_id() == '') {
 <body>
 
   <?php
-  require "../cabecalho.php"
+  require "../cabecalho.php";
+  $filtroData = null;
   ?>
 
 
@@ -30,13 +31,34 @@ if (session_id() == '') {
   <div class="fundo">
 
     <div class="row">
-      <div class="col-2">
-        <br>
-        <a class="btn btn-warning" href="">
-          <input type="button" class="btn btn-warning" value='filtro de reserva'>
-        </a>
-      </div>
       <div class="col">
+
+      </div>
+      <div class="col-8">
+        <br>
+        <form action="view.php" method="post">
+          <div class="row">
+            <div class="col-auto">
+              <input type="date" class="form-control" name="data" value="<?= $filtroData ?>">
+            </div>
+            <div class="col-auto">
+              <input type="submit" class="btn btn-warning" value='Filtrar'>
+            </div>
+
+            <?php if (isset($_POST['data'])) { ?>
+              <form action="view.php" method="post">
+                <div class="col-auto">
+                  <input hidden type="date" class="form-control" name="dataa" value="<?= $filtroData = null ?>">
+                </div>
+                <div class="col-auto">
+                  <input type="submit" class="btn btn-warning" value='Limpar Filtro'>
+                </div>
+              </form>
+            <?php } ?>
+            
+          </div>
+        </form>
+        <br>
         <br>
         <table class="table table-striped table-warning table-bordered">
           <thead>
@@ -46,28 +68,29 @@ if (session_id() == '') {
               <th scope="col">Instrutor</th>
               <th scope="col">Código</th>
               <?php
-                if(!estaLogado()){
+              if (!estaLogado()) {
               ?>
-              <th scope="col"></th>
+                <th scope="col"></th>
               <?php
-                }
+              }
               ?>
             </tr>
           </thead>
           <tbody>
             <?php
             require "querys.php";
+            require_once "../helper.php";
             if (!estaLogado()) {
               //Se o usuario estiver logado ele vai conseguir ver as reservas livres e o botão reservar
-              foreach (filtroReservasDisponiveisTemporario() as $u) {
+              foreach (filtroReservasDisponiveis((isset($_POST['data']) ? $_POST['data'] : null)) as $u) {
             ?>
                 <tr>
                   <td><?php echo $u['sala'] ?></td>
-                  <td><?php echo $u['diahora'] ?></td>
+                  <td><?php $timestamp = dataFormatter($u['diahora']); echo $timestamp[0] . "\t\t" . $timestamp[1] ?></td>
                   <td>
                     <?php
                     if ($u['instrutor'] == null) {
-                      echo ("livre");
+                     echo ("Livre");
                     } else {
                       echo $u['instrutor'];
                     }
@@ -79,30 +102,30 @@ if (session_id() == '') {
                   </td>
 
                 </tr>
-            <?php
+              <?php
               }
             } else {
               //Se o não usuario estiver logado ele só vai ver as reservas ocupadas
               foreach (filtroReservasOcupadasTemporario() as $u) {
-            ?>
-              <tr>
+              ?>
+                <tr>
                   <td><?php echo $u['sala'] ?></td>
-                  <td><?php echo $u['diahora'] ?></td>
+                  <td><?php $timestamp = dataFormatter($u['diahora']); echo $timestamp[0] . "\t\t" . $timestamp[1] ?></td>
                   <td>
                     <?php
                     if ($u['instrutor'] == null) {
-                      echo ("livre");
+                     echo ("Livre");
                     } else {
-                      echo $u['instrutor'];
+                      echo $u['nome'];
                     }
                     ?>
                   </td>
-                  <td><?php echo $u['cod'] ?></td>
-            <?php
+                  <td><?php echo $u['disciplina'] ?></td>
+              <?php
               }
             }
-            ?>
-            
+              ?>
+
           </tbody>
         </table>
       </div>
