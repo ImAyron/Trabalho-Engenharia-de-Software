@@ -1,6 +1,6 @@
 <?php
 
-function filtroInstrutoresPadrao($disciplina)
+function filtroInstrutoresPadrao($disciplina = null)
 {
     require '../Database/conexao.php';
     if (!$disciplina) {
