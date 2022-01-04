@@ -18,11 +18,17 @@ if (session_id() == '') {
       <br>
       <br>
       <a href="/Trabalho-Engenharia-de-Software/Usuarios/logout.php"><button class="btn btn-warning" action="/Trabalho-Engenharia-de-Software/Usuarios/logout.php"> Logout </button></a>
-      <p><?php echo $_SESSION['matricula'] ?></p>
+      <p ><?php echo $_SESSION['matricula'] ?></p>
     </div>
   <?php
-  }
+  } else {
   ?>
+    <div class="col" style="background-color: #F88011;text-align: center;">
+      <br>
+      <br>
+      <a href="/Trabalho-Engenharia-de-Software/index.php"><button class="btn btn-warning" action="/Trabalho-Engenharia-de-Software/Usuarios/logout.php"> Login </button></a>
+    </div>
+  <?php } ?>
 
 </div>
 
@@ -53,7 +59,7 @@ if (session_id() == '') {
       <div class="col border border-dark">
 
         <br>
-          <a class="d-flex justify-content-center text-center" href="/Trabalho-Engenharia-de-Software/Reservas/view.php">Reservas</a>
+        <a class="d-flex justify-content-center text-center" href="/Trabalho-Engenharia-de-Software/Reservas/view.php">Reservas</a>
         <br>
 
       </div>
@@ -68,7 +74,7 @@ if (session_id() == '') {
       <div class="col border border-dark">
 
         <br>
-          <a class="d-flex justify-content-center text-center" href="/Trabalho-Engenharia-de-Software/Reservas/minhasReservas.php">Minhas Reservas</a>
+        <a class="d-flex justify-content-center text-center" href="/Trabalho-Engenharia-de-Software/Reservas/minhasReservas.php">Minhas Reservas</a>
         <br>
 
       </div>
@@ -190,16 +196,6 @@ if (session_id() == '') {
     <?php
     }
     ?>
-
-    <div class="col border border-dark">
-      <br>
-      <a class="d-flex justify-content-center text-center" href="/Trabalho-Engenharia-de-Software/index.php">Login</a>
-      <br>
-    </div>
-
-
-
-
 
   </div>
 </div>
