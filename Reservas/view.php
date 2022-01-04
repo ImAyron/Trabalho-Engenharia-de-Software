@@ -44,7 +44,21 @@ if (session_id() == '') {
             </div>
 
             <div class="col-auto">
-              <input placeholder="Disciplina" type="text" class="form-control" name="disciplina" value="<?= $filtroDisciplina ?>">
+              <select class="form-control" name="disciplina" id="disciplina">
+                <option selected disabled>Disciplina</option>
+                <?php
+                include_once "../Disciplinas/querys.php";
+
+                foreach (filtroDisciplinasPadrao() as $disc) {
+
+                  if ($u[0][4] == $disc['cod']) {
+                    echo '<option selected class="form-control">' . $disc['cod'] . '</option>';
+                  } else {
+                    echo '<option  class="form-control">' . $disc['cod'] . '</option>';
+                  }
+                }
+                ?>
+              </select>
             </div>
 
             <div class="col-auto">

@@ -17,8 +17,8 @@ require "loginFunctions.php";
 <body>
 
   <?php
-    require "../cabecalho.php";
-    $filtroDisciplina = null;
+  require "../cabecalho.php";
+  $filtroDisciplina = null;
   ?>
 
   <div class="fundo">
@@ -29,11 +29,25 @@ require "loginFunctions.php";
       </div>
       <div class="col">
 
-      <br>
+        <br>
         <form action="view.php" method="post">
           <div class="row">
             <div class="col-auto">
-              <input placeholder="Disciplina" type="text" class="form-control" name="disciplina" value="<?= $filtroDisciplina ?>">
+              <select class="form-control" name="disciplina" id="disciplina">
+                <option selected disabled>Disciplina</option>
+                <?php
+                include_once "../Disciplinas/querys.php";
+
+                foreach (filtroDisciplinasPadrao() as $disc) {
+
+                  if ($u[0][4] == $disc['cod']) {
+                    echo '<option selected class="form-control">' . $disc['cod'] . '</option>';
+                  } else {
+                    echo '<option  class="form-control">' . $disc['cod'] . '</option>';
+                  }
+                }
+                ?>
+              </select>
             </div>
 
             <div class="col-auto">
@@ -63,16 +77,16 @@ require "loginFunctions.php";
           </thead>
           <tbody>
             <?php
-              require "querys.php";
-              foreach (filtroInstrutoresPadrao((isset($_POST['disciplina']) ? strtoupper($_POST['disciplina']) : null)) as $u){
+            require "querys.php";
+            foreach (filtroInstrutoresPadrao((isset($_POST['disciplina']) ? strtoupper($_POST['disciplina']) : null)) as $u) {
             ?>
-            <tr>
-              <td><?php echo $u['nome']?></td>
-              <td><?php echo $u['email']?></td>
-              <td><?php echo $u['disciplina']?></td>
-            </tr>
+              <tr>
+                <td><?php echo $u['nome'] ?></td>
+                <td><?php echo $u['email'] ?></td>
+                <td><?php echo $u['disciplina'] ?></td>
+              </tr>
             <?php
-              }
+            }
             ?>
           </tbody>
         </table>
