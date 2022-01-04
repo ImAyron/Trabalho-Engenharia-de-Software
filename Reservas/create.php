@@ -34,7 +34,17 @@
           <form action="controllerInsert.php" method="post">
             <p></p>
             <label for="sala">Sala:</label>
-            <input class="form-control" type="text" name="sala" id="sala">
+            <select class="form-control" name="sala" id="sala">
+              <option selected disabled>Selecione a Sala</option>
+              <?php
+              include_once "../Salas/querys.php";
+
+              foreach (filtroSalas() as $sala) {
+
+                echo '<option class="form-control">' . $sala['cod'] . '</option>';
+              }
+              ?>
+            </select>
             <p></p>
             <label for="dia">Dia:</label>
             <input class="form-control" type="date" name="dia" id="dia">

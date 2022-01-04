@@ -1,6 +1,6 @@
 <?php
 
-function filtroReservasPadrao($dia, $disciplina)
+function filtroReservasPadrao($dia = null, $disciplina = null)
 {
     require '../Database/conexao.php';
 

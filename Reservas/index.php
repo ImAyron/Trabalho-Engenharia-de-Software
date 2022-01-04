@@ -18,7 +18,8 @@ require "../Usuarios/loginFunctions.php";
 <body>
 
   <?php
-    require "../cabecalho.php"
+    require "../cabecalho.php";
+    require "../helper.php";
   ?>
      
       
