@@ -17,7 +17,8 @@ require "loginFunctions.php";
 <body>
 
   <?php
-    require "../cabecalho.php"
+    require "../cabecalho.php";
+    $filtroDisciplina = null;
   ?>
 
   <div class="fundo">
@@ -27,7 +28,31 @@ require "loginFunctions.php";
 
       </div>
       <div class="col">
+
+      <br>
+        <form action="view.php" method="post">
+          <div class="row">
+            <div class="col-auto">
+              <input placeholder="Disciplina" type="text" class="form-control" name="disciplina" value="<?= $filtroDisciplina ?>">
+            </div>
+
+            <div class="col-auto">
+              <input type="submit" class="btn btn-warning" value='Filtrar'>
+            </div>
+
+            <form action="view.php" method="post">
+              <div class="col-auto">
+                <input hidden type="date" class="form-control" name="dataa" value="<?= $filtroDisciplina = null ?>">
+              </div>
+              <div class="col-auto">
+                <input type="submit" class="btn btn-warning" value='Limpar Filtro'>
+              </div>
+            </form>
+
+          </div>
+        </form>
         <br>
+
         <table class="table table-striped table-warning table-bordered">
           <thead>
             <tr>
@@ -39,7 +64,7 @@ require "loginFunctions.php";
           <tbody>
             <?php
               require "querys.php";
-              foreach (filtroInstrutoresPadrao() as $u){
+              foreach (filtroInstrutoresPadrao((isset($_POST['disciplina']) ? strtoupper($_POST['disciplina']) : null)) as $u){
             ?>
             <tr>
               <td><?php echo $u['nome']?></td>

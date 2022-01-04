@@ -1,20 +1,29 @@
 <?php
 
-function filtroInstrutoresPadrao()
+function filtroInstrutoresPadrao($disciplina)
 {
     require '../Database/conexao.php';
+    if (!$disciplina) {
+        $stmt = $conection->query("SELECT nome, matricula, email, disciplina FROM USUARIOS EXCEPT
+        SELECT nome, matricula, email, disciplina FROM USUARIOS WHERE tipo = 'ADMIN' ORDER BY disciplina,nome");
 
-    $stmt = $conection->query("SELECT nome, matricula, email, disciplina FROM USUARIOS EXCEPT
-    SELECT nome, matricula, email, disciplina FROM USUARIOS WHERE tipo = 'ADMIN' ORDER BY disciplina,nome");
+        return $stmt->fetchAll();
+    } else {
+        $stmt = $conection->prepare("SELECT nome, matricula, email, disciplina FROM USUARIOS WHERE disciplina=:disciplina
+        EXCEPT SELECT nome, matricula, email, disciplina FROM USUARIOS WHERE tipo = 'ADMIN' ORDER BY disciplina,nome");
+        $stmt->bindParam(":disciplina", $disciplina);
+        $stmt->execute();
 
-    return $stmt->fetchAll();
+        return $stmt->fetchAll();
+    }
 }
 
 function filtroPorMatricula($matricula)
 {
     require '../Database/conexao.php';
 
-    $stmt = $conection->prepare("SELECT cpf, nome, matricula, email, disciplina, senha, tipo FROM USUARIOS WHERE matricula=:matricula");
+    $stmt = $conection->prepare("SELECT cpf, nome, matricula, email, disciplina, senha, tipo 
+    FROM USUARIOS WHERE matricula=:matricula");
     $stmt->bindParam(":matricula", $matricula);
     $stmt->execute();
     return $stmt->fetchAll();
@@ -31,7 +40,7 @@ function updateUserData($nome, $matricula, $email, $senha1, $disciplina, $tipo, 
         $stmt = $conection->prepare("UPDATE USUARIOS SET 
         nome=:nome, matricula=:matricula, email=:email, disciplina=:disciplina, senha=:senha, tipo=:tipo
         WHERE cpf=:cpf");
-        
+
         $stmt->bindParam(":cpf", $cpf);
         $stmt->bindParam(":nome", $nome);
         $stmt->bindParam(":matricula", $matricula);
