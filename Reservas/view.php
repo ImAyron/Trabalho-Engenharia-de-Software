@@ -42,24 +42,25 @@ if (session_id() == '') {
             <div class="col-auto">
               <input type="date" class="form-control" name="data" value="<?= $filtroData ?>">
             </div>
+            <?php if (!isset($_SESSION['tipo']) || (($_SESSION['tipo'] != 'MONITOR') && ($_SESSION['tipo'] != 'TUTOR'))) { ?>
+              <div class="col-auto">
+                <select class="form-control" name="disciplina" id="disciplina">
+                  <option selected disabled>Disciplina</option>
+                  <?php
+                  include_once "../Disciplinas/querys.php";
 
-            <div class="col-auto">
-              <select class="form-control" name="disciplina" id="disciplina">
-                <option selected disabled>Disciplina</option>
-                <?php
-                include_once "../Disciplinas/querys.php";
+                  foreach (filtroDisciplinasPadrao() as $disc) {
 
-                foreach (filtroDisciplinasPadrao() as $disc) {
-
-                  if ($u[0][4] == $disc['cod']) {
-                    echo '<option selected class="form-control">' . $disc['cod'] . '</option>';
-                  } else {
-                    echo '<option  class="form-control">' . $disc['cod'] . '</option>';
+                    if ($u[0][4] == $disc['cod']) {
+                      echo '<option selected class="form-control">' . $disc['cod'] . '</option>';
+                    } else {
+                      echo '<option  class="form-control">' . $disc['cod'] . '</option>';
+                    }
                   }
-                }
-                ?>
-              </select>
-            </div>
+                  ?>
+                </select>
+              </div>
+            <?PHP } ?>
 
             <div class="col-auto">
               <input type="submit" class="btn btn-warning" value='Filtrar'>

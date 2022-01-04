@@ -54,8 +54,8 @@ if (session_id() == '') {
 
     <?php
     ///Botão Reservas usuario Monitor
-    if (!estalogado() && ($_SESSION['tipo']) == 'MONITOR') {
-    ?>
+    if (!estalogado() && (($_SESSION['tipo'] == 'MONITOR') || ($_SESSION['tipo'] == 'TUTOR')))  {
+      ?>
       <div class="col border border-dark">
 
         <br>
@@ -69,8 +69,8 @@ if (session_id() == '') {
 
     <?php
     ///Botão Minhas Reservas usuario Monitor
-    if (!estalogado() && ($_SESSION['tipo']) == 'MONITOR') {
-    ?>
+    if (!estalogado() && (($_SESSION['tipo'] == 'MONITOR') || ($_SESSION['tipo'] == 'TUTOR')))  {
+      ?>
       <div class="col border border-dark">
 
         <br>
@@ -115,8 +115,8 @@ if (session_id() == '') {
 
     <?php
     ///Botão Salas usuario Monitor
-    if (!estalogado() && ($_SESSION['tipo']) == 'MONITOR') {
-    ?>
+    if (!estalogado() && (($_SESSION['tipo'] == 'MONITOR') || ($_SESSION['tipo'] == 'TUTOR')))  {
+      ?>
       <div class="col border border-dark">
 
         <br>
@@ -158,8 +158,8 @@ if (session_id() == '') {
 
     <?php
     ///Botão Instrutores usuario Monitor
-    if (!estalogado() && ($_SESSION['tipo']) == 'MONITOR') {
-    ?>
+    if (!estalogado() && (($_SESSION['tipo'] == 'MONITOR') || ($_SESSION['tipo'] == 'TUTOR')))  {
+      ?>
       <div class="col border border-dark">
         <br>
         <a class="d-flex justify-content-center text-center" href="/Trabalho-Engenharia-de-Software/Usuarios/view.php">Instrutores</a>
