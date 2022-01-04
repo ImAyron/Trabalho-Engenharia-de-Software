@@ -24,6 +24,7 @@ if (session_id() == '') {
   <?php
   require "../cabecalho.php";
   $filtroData = null;
+  $filtroDisciplina = null;
   ?>
 
 
@@ -41,21 +42,27 @@ if (session_id() == '') {
             <div class="col-auto">
               <input type="date" class="form-control" name="data" value="<?= $filtroData ?>">
             </div>
+
+            <div class="col-auto">
+              <input placeholder="Disciplina" type="text" class="form-control" name="disciplina" value="<?= $filtroDisciplina ?>">
+            </div>
+
             <div class="col-auto">
               <input type="submit" class="btn btn-warning" value='Filtrar'>
             </div>
 
-            <?php if (isset($_POST['data'])) { ?>
-              <form action="view.php" method="post">
-                <div class="col-auto">
-                  <input hidden type="date" class="form-control" name="dataa" value="<?= $filtroData = null ?>">
-                </div>
-                <div class="col-auto">
-                  <input type="submit" class="btn btn-warning" value='Limpar Filtro'>
-                </div>
-              </form>
-            <?php } ?>
-            
+            <form action="view.php" method="post">
+              <div class="col-auto">
+                <input hidden type="date" class="form-control" name="dataa" value="<?= $filtroData = null ?>">
+              </div>
+              <div class="col-auto">
+                <input hidden type="date" class="form-control" name="dataa" value="<?= $filtroDisciplina = null ?>">
+              </div>
+              <div class="col-auto">
+                <input type="submit" class="btn btn-warning" value='Limpar Filtro'>
+              </div>
+            </form>
+
           </div>
         </form>
         <br>
@@ -86,11 +93,12 @@ if (session_id() == '') {
             ?>
                 <tr>
                   <td><?php echo $u['sala'] ?></td>
-                  <td><?php $timestamp = dataFormatter($u['diahora']); echo $timestamp[0] . "\t\t" . $timestamp[1] ?></td>
+                  <td><?php $timestamp = dataFormatter($u['diahora']);
+                      echo $timestamp[0] . "\t\t" . $timestamp[1] ?></td>
                   <td>
                     <?php
                     if ($u['instrutor'] == null) {
-                     echo ("Livre");
+                      echo ("Livre");
                     } else {
                       echo $u['instrutor'];
                     }
@@ -106,15 +114,16 @@ if (session_id() == '') {
               }
             } else {
               //Se o não usuario estiver logado ele só vai ver as reservas ocupadas
-              foreach (filtroReservasOcupadasTemporario() as $u) {
+              foreach (filtroReservasPadrao((isset($_POST['data']) ? $_POST['data'] : null), (isset($_POST['disciplina']) ? strtoupper($_POST['disciplina']) : null)) as $u) {
               ?>
                 <tr>
                   <td><?php echo $u['sala'] ?></td>
-                  <td><?php $timestamp = dataFormatter($u['diahora']); echo $timestamp[0] . "\t\t" . $timestamp[1] ?></td>
+                  <td><?php $timestamp = dataFormatter($u['diahora']);
+                      echo $timestamp[0] . "\t\t" . $timestamp[1] ?></td>
                   <td>
                     <?php
                     if ($u['instrutor'] == null) {
-                     echo ("Livre");
+                      echo ("Livre");
                     } else {
                       echo $u['nome'];
                     }

@@ -4,14 +4,44 @@ function filtroReservasPadrao($dia, $disciplina)
 {
     require '../Database/conexao.php';
 
-    $stmt = $conection->prepare("SELECT * FROM RESERVAS WHERE DATE(diahora)=:dia AND instrutor IN 
-        (SELECT cpf FROM USUARIOS WHERE disciplina=:disciplina) ORDER BY diahora");
+    if ($dia && !$disciplina) {
+        $stmt = $conection->prepare("SELECT sala,diahora,cod,instrutor,nome,disciplina FROM RESERVAS INNER JOIN USUARIOS
+        ON RESERVAS.instrutor = USUARIOS.cpf WHERE DATE(diahora)=:dia ORDER BY diahora");
 
-    $stmt->bindParam(":dia", $dia);
-    $stmt->bindParam(":disciplina", $disciplina);
-    $stmt->execute();
+        $stmt->bindParam(":dia", $dia);
+        $stmt->execute();
 
-    return $stmt->fetchAll();
+        return $stmt->fetchAll();
+    }
+
+    if (!$dia && $disciplina) {
+        $stmt = $conection->prepare("SELECT sala,diahora,cod,instrutor,nome,disciplina FROM RESERVAS INNER JOIN USUARIOS
+        ON RESERVAS.instrutor = USUARIOS.cpf WHERE disciplina=:disciplina ORDER BY diahora");
+
+        $stmt->bindParam(":disciplina", $disciplina);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+
+    if ($dia && $disciplina) {
+        $stmt = $conection->prepare("SELECT sala,diahora,cod,instrutor,nome,disciplina FROM RESERVAS INNER JOIN USUARIOS
+        ON RESERVAS.instrutor = USUARIOS.cpf WHERE DATE(diahora)=:dia AND disciplina=:disciplina ORDER BY diahora");
+
+        $stmt->bindParam(":dia", $dia);
+        $stmt->bindParam(":disciplina", $disciplina);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    } else {
+        $stmt = $conection->prepare("SELECT sala,diahora,cod,instrutor,nome,disciplina FROM RESERVAS
+        INNER JOIN USUARIOS ON RESERVAS.instrutor = USUARIOS.cpf WHERE instrutor IS NOT NULL 
+        ORDER BY diahora");
+
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
 }
 
 function filtroReservasDisponiveis($dia)
@@ -36,32 +66,6 @@ function filtroReservasDisponiveis($dia)
 
         return $stmt->fetchAll();
     }
-}
-
-function filtroReservasOcupadasTemporario()
-{
-    require '../Database/conexao.php';
-
-    $stmt = $conection->prepare("SELECT sala,diahora,cod,instrutor,nome,disciplina FROM RESERVAS
-    INNER JOIN USUARIOS ON RESERVAS.instrutor = USUARIOS.cpf WHERE instrutor IS NOT NULL 
-    ORDER BY diahora");
-
-    $stmt->execute();
-
-    return $stmt->fetchAll();
-}
-
-function filtroReservasDisponiveisTemporario()
-{
-    require '../Database/conexao.php';
-
-    $stmt = $conection->prepare("SELECT sala,diahora,cod,instrutor,nome,disciplina FROM RESERVAS
-    INNER JOIN USUARIOS ON RESERVAS.instrutor = USUARIOS.cpf WHERE instrutor IS NULL 
-    ORDER BY diahora");
-
-    $stmt->execute();
-
-    return $stmt->fetchAll();
 }
 
 function filtroMinhasReservas()
