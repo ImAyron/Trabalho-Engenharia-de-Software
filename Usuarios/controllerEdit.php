@@ -4,13 +4,11 @@
     $nome = $_POST['nome'];
     $matricula = $_POST['matricula'];
     $email = $_POST['email'];
-    $senha = $_POST['senha'];
+    $senha1 = $_POST['senha1'];
     $disciplina = $_POST['disciplina'];
     $tipo = $_POST['tipo'];
     $cpf = $_POST['cpf'];
 
-    //echo($nome."|".$matricula."|".$email."|".$disciplina."|".$tipo);
-
-    updateUserData($nome, $matricula, $email, $senha, $disciplina, $tipo, $cpf);
+    updateUserData($nome, $matricula, $email, $senha1, $disciplina, $tipo, $cpf);
     
     header("location:index.php");

@@ -50,7 +50,7 @@
             <p></p>
             <p></p>
             <label for="senha">Senha:</label>
-            <input class="form-control" type="password" name="senha" id="senha" placeholder="Ex: *******" maxlength="30"> 
+            <input class="form-control" type="password" required name="senha1" id="senha1" placeholder="Ex: *******" maxlength="30"> 
             <p></p>
             <p></p>
             <label for="disciplina">Código da disciplina:</label>

@@ -20,7 +20,7 @@ function filtroPorMatricula($matricula)
     return $stmt->fetchAll();
 }
 
-function updateUserData($nome, $matricula, $email, $senha, $disciplina, $tipo, $cpf)
+function updateUserData($nome, $matricula, $email, $senha1, $disciplina, $tipo, $cpf)
 {
     require '../Database/conexao.php';
 
@@ -36,7 +36,7 @@ function updateUserData($nome, $matricula, $email, $senha, $disciplina, $tipo, $
         $stmt->bindParam(":nome", $nome);
         $stmt->bindParam(":matricula", $matricula);
         $stmt->bindParam(":email", $email);
-        $stmt->bindParam(":senha", $senha);
+        $stmt->bindParam(":senha", $senha1);
         $stmt->bindParam(":disciplina", $disciplina);
         $stmt->bindParam(":tipo", $tipo);
 
@@ -116,7 +116,7 @@ function trocarSenha($novasenha)
     }
 }
 
-function inserirUsuarios($cpf, $nome, $matricula, $email, $disciplina, $tipo, $senha)
+function inserirUsuarios($cpf, $nome, $matricula, $email, $disciplina, $tipo, $senha1)
 {
     require '../Database/conexao.php';
 
@@ -131,7 +131,7 @@ function inserirUsuarios($cpf, $nome, $matricula, $email, $disciplina, $tipo, $s
         $stmt->bindParam(":nome", $nome);
         $stmt->bindParam(":matricula", $matricula);
         $stmt->bindParam(":email", $email);
-        $stmt->bindParam(":senha", $senha);
+        $stmt->bindParam(":senha", $senha1);
         $stmt->bindParam(":disciplina", $disciplina);
         $stmt->bindParam(":tipo", $tipo);
 
