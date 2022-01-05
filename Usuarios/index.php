@@ -25,7 +25,7 @@ require "loginFunctions.php";
     <div class="row">
       <div class="col-2">
       <br>
-      <a class="btn btn-warning" href="create.php">
+      <a class="btn btn-warning" style="margin-left: 10%" href="create.php">
         <input type="button" class="btn btn-warning" value='Novo Usuário'>
       </a>
       </div>
