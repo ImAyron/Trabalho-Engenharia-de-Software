@@ -67,7 +67,7 @@ session_start();
             <p></p>
             <p></p>
             <label for="tipo">Tipo de usuário:</label>
-            <select class="form-control" name="disciplina" id="disciplina">
+            <select class="form-control" name="tipo" id="tipo">
               <option selected disabled>Selecione a tipo</option>
               <option>MONITOR</option>
               <option>TUTOR</option>
