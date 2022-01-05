@@ -95,6 +95,15 @@ function filtroTodasReservas()
     return $stmt->fetchAll();
 }
 
+function filtroTodasReservasAdmin()
+{
+    require '../Database/conexao.php';
+
+    $stmt = $conection->query("SELECT * FROM RESERVAS");
+
+    return $stmt->fetchAll();
+}
+
 function reservarSala($cod)
 {
     require '../Database/conexao.php';

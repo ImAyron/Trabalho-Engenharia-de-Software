@@ -41,28 +41,28 @@ require "../Usuarios/loginFunctions.php";
               <th scope="col">Sala</th>
               <th scope="col">Dia/Hora</th>
               <th scope="col">Instrutor</th>
-              <th scope="col">Disciplina</th>
+              <th scope="col">Código</th>
               <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
             <?php
               require "querys.php";
-              foreach (filtroTodasReservas() as $u){
+              foreach (filtroTodasReservasAdmin() as $u){
             ?>
             <tr>
               <td><?php echo $u['sala']?></td>
               <td><?php $timestamp = dataFormatter($u['diahora']); echo $timestamp[0] . "\t\t" . $timestamp[1] ?></td>
               <td>
                 <?php 
-                  if ($u['nome'] == null){
+                  if ($u['instrutor'] == null){
                    echo ("Livre");
                   } else {
-                    echo $u['nome'];
+                    echo $u['instrutor'];
                   }
                 ?>
               </td>
-              <td><?php echo $u['disciplina']?></td>
+              <td><?php echo $u['cod']?></td>
               <td><a href="edit.php?cod=<?php echo($u['cod'])?>"><input type="button" class="btn btn-warning" value='editar'></a></td>
             </tr>
             <?php
